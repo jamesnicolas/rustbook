@@ -20,10 +20,10 @@ impl fmt::Display for Rectangle {
     fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), std::fmt::Error> { 
         for y in 0..self.height {
             for x in 0..self.width {
-                write!(f, "{}", cmp::min(x+1,y+1));
+                write!(f, "{}", cmp::min(x+1,y+1)).expect("Failed to write!");
             }
             if y != self.height-1 {
-                write!(f, "{}", "\n");
+                write!(f, "{}", "\n").expect("Failed to write!");
             }
         }
         Ok(())
