@@ -1,18 +1,20 @@
 use std::fmt;
 use std::cmp;
 
+#[derive(Debug)]
 struct Rectangle {
     width: u32,
     height: u32,
 }
 
 trait Asdf {
-    fn pog(&self);
+    fn to_lowercase(&self) -> &str;
 }
 
 impl Asdf for str {
-    fn pog(&self) {
-        println!("pog")
+    fn to_lowercase(&self) -> &str {
+        println!("pog");
+        "pog"
     }
 }
 
@@ -32,7 +34,9 @@ impl fmt::Display for Rectangle {
 
 fn main() {
     println!("Hello, world!");
-    "a".pog();
+    <str as Asdf>::to_lowercase("A");
+    str::to_lowercase("A");
+    "A".to_lowercase();
 
     let mut list = [
         Rectangle { width: 10, height: 1 },
@@ -42,6 +46,6 @@ fn main() {
 
     list.sort_by_key(|r| r.width);
     for rectangle in list {
-        println!("{}", rectangle)
+        println!("{:#?}", rectangle)
     }
 }
