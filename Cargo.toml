@@ -17,4 +17,5 @@ members = [
     "lists",
     "rectangles",
     "learn_enum",
+    "calc",
 ]
